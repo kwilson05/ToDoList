@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ToDoItem>
+
+    <div>
+        @foreach (var item in Model)
+        {
+            <div style="display:flex; justify-content: space-evenly; margin: 10px 0px;">
+                <div>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </div>
+                <div>
+                    <button data-index="@Url.Action("Index", "ToDoItem")"
+                            data-url="@Url.Action("MarkComplete", "ToDoItem")/@item.Id" onclick="markItemComplete(event);"
+                            class="btn btn-success">
+                        Complete
+                    </button>
+                    
+                </div>
+                <div>
+                    <button data-index="@Url.Action("Index", "ToDoItem")"
+                            data-url="@Url.Action("Delete", "ToDoItem")/@item.Id" onclick="deleteItem(event);"
+                            class="btn btn-danger">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        }
+    </div>

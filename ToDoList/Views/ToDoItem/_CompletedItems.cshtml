@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ToDoItem>
+
+<div style="margin-top:10px;" >
+    <h2 style="text-align:center;">Completed</h2>
+    @foreach (var item in Model)
+    {
+        <div style="margin: 10px 0px; padding:10px;">
+            <div style="background-color: forestgreen; color: white">
+                <h3>@item.Name</h3>
+            </div>
+         
+        </div>
+    }
+</div>
