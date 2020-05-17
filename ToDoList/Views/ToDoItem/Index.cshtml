@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ToDoList.Models.ToDoItem>
+
+@{
+
+}
+
+<section style="display:flex; flex-direction:column; align-items:center; padding:10px;">
+
+    <div style="margin-bottom: 10px; display: flex;">
+
+        <div style="width: 300px; margin: 0 10px;">
+            <input class="form-control" placeholder="What's next on the list?" />
+        </div>
+        <div>
+            <button class="btn btn-success">Add</button>
+            <div />
+        </div>
+
+        <div>
+            @foreach (var item in Model)
+            {
+                <div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </div>
+                    <div>
+                        <button asp-action="MarkComplete" asp-route-id="@item.Id"
+                                class="btn btn-success">
+                            Complete
+                        </button>
+                    </div>
+                    <div>
+                        <button asp-action="Delete" asp-route-id="@item.Id"
+                                class="btn btn-success">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+</section>
